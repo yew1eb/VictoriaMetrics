@@ -468,7 +468,7 @@ func (s *Server) processRequest(ctx *vmselectRequestCtx) error {
 func (s *Server) processRPC(ctx *vmselectRequestCtx, rpcName string) error {
 	switch rpcName {
 	case "search_v7":
-		return s.processSearch(ctx)
+		return s.processSearch(ctx) //TODO 查询的入口
 	case "searchMetricNames_v3":
 		return s.processSearchMetricNames(ctx)
 	case "labelValues_v5":

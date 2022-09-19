@@ -2001,6 +2001,7 @@ func (s *Storage) add(rows []rawRow, dstMrs []*MetricRow, mrs []MetricRow, preci
 	if err != nil {
 		err = fmt.Errorf("cannot update per-date data: %w", err)
 	} else {
+		//TODO 真正写入数据的地方
 		err = s.tb.AddRows(rows)
 		if err != nil {
 			err = fmt.Errorf("cannot add rows to table: %w", err)
