@@ -1385,6 +1385,7 @@ func ProcessBlocks(qt *querytracer.Tracer, denyPartialResponse bool, sq *storage
 		return err
 	}
 
+	//TODO 分发查询请求到所有存储节点
 	// Send the query to all the storage nodes in parallel.
 	snr := startStorageNodesRequest(qt, denyPartialResponse, func(qt *querytracer.Tracer, workerIdx int, sn *storageNode) interface{} {
 		sn.searchRequests.Inc()
@@ -1705,6 +1706,7 @@ func (sn *storageNode) processSearchQuery(qt *querytracer.Tracer, requestData []
 		}
 		return nil
 	}
+	//TODO 向存储节点发起rpc请求 search_v7
 	return sn.execOnConnWithPossibleRetry(qt, "search_v7", f, deadline)
 }
 

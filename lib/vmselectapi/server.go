@@ -468,7 +468,7 @@ func (s *Server) processRequest(ctx *vmselectRequestCtx) error {
 func (s *Server) processRPC(ctx *vmselectRequestCtx, rpcName string) error {
 	switch rpcName {
 	case "search_v7":
-		return s.processSearch(ctx) //TODO 查询的入口
+		return s.processSearch(ctx) //TODO 存储节点接受查询请求的入口
 	case "searchMetricNames_v3":
 		return s.processSearchMetricNames(ctx)
 	case "labelValues_v5":
@@ -848,6 +848,7 @@ func (s *Server) processSearch(ctx *vmselectRequestCtx) error {
 
 	// Initiaialize the search.
 	startTime := time.Now()
+	//TODO 开始查找
 	bi, err := s.api.InitSearch(ctx.qt, &ctx.sq, ctx.deadline)
 	if err != nil {
 		return ctx.writeErrorMessage(err)

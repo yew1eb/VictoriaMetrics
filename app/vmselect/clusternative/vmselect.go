@@ -112,6 +112,7 @@ func newBlockIterator(qt *querytracer.Tracer, denyPartialResponse bool, sq *stor
 	bi.workCh = make(chan workItem, 16)
 	bi.wg.Add(1)
 	go func() {
+		//TODO 查询返回的mb *storage.MetricBlock塞入迭代器 bi
 		_, err := netstorage.ProcessBlocks(qt, denyPartialResponse, sq, func(mb *storage.MetricBlock, workerIdx int) error {
 			wi := workItem{
 				mb:     mb,
