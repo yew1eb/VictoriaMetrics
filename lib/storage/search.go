@@ -183,7 +183,7 @@ func (s *Search) Init(qt *querytracer.Tracer, storage *Storage, tfss []*TagFilte
 	s.tfss = tfss
 	s.deadline = deadline
 	s.needClosing = true
-
+	//tfss TagFilters走索引找到所有的tsids行号集合
 	tsids, err := storage.searchTSIDs(qt, tfss, tr, maxMetrics, deadline)
 	if err == nil {
 		err = storage.prefetchMetricNames(qt, tsids, deadline)

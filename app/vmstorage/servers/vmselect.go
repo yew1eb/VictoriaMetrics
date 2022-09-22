@@ -45,11 +45,14 @@ type vmstorageAPI struct {
 }
 
 func (api *vmstorageAPI) InitSearch(qt *querytracer.Tracer, sq *storage.SearchQuery, deadline uint64) (vmselectapi.BlockIterator, error) {
+	//TODO 真正的存储节点查询数据！！！
+	// 查询的时间范围
 	tr := sq.GetTimeRange()
 	if err := checkTimeRange(api.s, tr); err != nil {
 		return nil, err
 	}
 	maxMetrics := getMaxMetrics(sq)
+	//TODO  通过sq(storage.SearchQuery).TagFilterss 构建出  storage.TagFilters 查询的过滤条件
 	tfss, err := api.setupTfss(qt, sq, tr, maxMetrics, deadline)
 	if err != nil {
 		return nil, err
@@ -58,6 +61,7 @@ func (api *vmstorageAPI) InitSearch(qt *querytracer.Tracer, sq *storage.SearchQu
 		return nil, fmt.Errorf("missing tag filters")
 	}
 	bi := getBlockIterator()
+	//TODO blockIterator / storage.Search
 	bi.sr.Init(qt, api.s, tfss, tr, maxMetrics, deadline)
 	if err := bi.sr.Error(); err != nil {
 		bi.MustClose()

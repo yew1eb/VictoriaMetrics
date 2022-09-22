@@ -1245,6 +1245,7 @@ func (s *Storage) searchTSIDs(qt *querytracer.Tracer, tfss []*TagFilters, tr Tim
 				cap(searchTSIDsConcurrencyCh), timeout.Seconds())
 		}
 	}
+	//TODO 走索引indexdb
 	tsids, err := s.idb().searchTSIDs(qt, tfss, tr, maxMetrics, deadline)
 	<-searchTSIDsConcurrencyCh
 	if err != nil {
