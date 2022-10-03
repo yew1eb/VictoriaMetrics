@@ -3,7 +3,7 @@ module github.com/VictoriaMetrics/VictoriaMetrics
 go 1.19
 
 require (
-	cloud.google.com/go/storage v1.26.0
+	cloud.google.com/go/storage v1.27.0
 	github.com/VictoriaMetrics/fastcache v1.12.0
 
 	// Do not use the original github.com/valyala/fasthttp because of issues
@@ -31,7 +31,7 @@ require (
 	golang.org/x/net v0.0.0-20220909164309-bea034e7d591
 	golang.org/x/oauth2 v0.0.0-20220909003341-f21342109be1
 	golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8
-	google.golang.org/api v0.96.0
+	google.golang.org/api v0.97.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
@@ -75,7 +75,7 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220916172020-2692e8806bfa // indirect
+	google.golang.org/genproto v0.0.0-20220920201722-2b89144ce006 // indirect
 	google.golang.org/grpc v1.49.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
